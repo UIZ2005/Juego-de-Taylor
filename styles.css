@@ -1,0 +1,260 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', serif;
+  }
+
+  body {
+    background: #faf0f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .album-folklore {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('https://via.placeholder.com/800/333333/ffffff?text=folklore');
+    background-size: cover;
+    color: #d4c7b9;
+  }
+
+  .album-fearless {
+    background: linear-gradient(rgba(255, 215, 0, 0.3), rgba(255, 215, 0, 0.3)),
+                url('https://via.placeholder.com/800/ffd700/ffffff?text=Fearless');
+    background-size: cover;
+    color: #8b7355;
+  }
+
+  .album-speak-now {
+    background: linear-gradient(rgba(128, 0, 128, 0.3), rgba(128, 0, 128, 0.3)),
+                url('https://via.placeholder.com/800/800080/ffffff?text=Speak+Now');
+    background-size: cover;
+    color: #4a154b;
+  }
+
+  .album-lover {
+    background: linear-gradient(rgba(255, 182, 193, 0.3), rgba(255, 182, 193, 0.3)),
+                url('https://via.placeholder.com/800/ffb6c1/ffffff?text=Lover');
+    background-size: cover;
+    color: #ff69b4;
+  }
+
+  #game-container {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .stage {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 25px;
+    margin: 15px auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .stage-title {
+    font-size: 24px;
+    color: #ff69b4;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  }
+
+  .form-stage {
+    margin: 20px 0;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e5e5e5;
+    border-radius: 25px;
+    font-size: 16px;
+    margin: 10px 0;
+    background: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  input[type="text"]:focus {
+    outline: none;
+    border-color: #ff69b4;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+  }
+
+  button {
+    background: linear-gradient(45deg, #ff69b4, #ff8da1);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px 0;
+    width: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+  }
+
+  .message {
+    font-size: 18px;
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .stage-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    margin: 15px auto;
+    display: block;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+  }
+
+  .hidden {
+    display: none;
+  }
+  #final-message {
+    text-align: center;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(255, 105, 180, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #final-message h1 {
+    font-size: 2.5em;
+    color: transparent;
+    background: linear-gradient(45deg, #ff69b4, #ff1493);
+    -webkit-background-clip: text;
+    background-clip: text;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+    animation: sparkleText 2s ease-in-out infinite;
+  }
+
+  #final-message::before {
+    content: '💝';
+    position: absolute;
+    font-size: 150px;
+    opacity: 0.1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    animation: rotate 20s linear infinite;
+  }
+
+  .hearts-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+
+  .heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff69b4;
+    transform: rotate(45deg);
+    animation: floatingHeart 4s ease-in infinite;
+  }
+
+  .heart::before,
+  .heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ff69b4;
+  }
+
+  .heart::before {
+    left: -10px;
+  }
+
+  .heart::after {
+    top: -10px;
+  }
+
+  @keyframes sparkleText {
+    0% {
+      text-shadow: 0 0 0px #ff69b4;
+      transform: scale(1);
+    }
+    50% {
+      text-shadow: 0 0 20px #ff69b4;
+      transform: scale(1.1);
+    }
+    100% {
+      text-shadow: 0 0 0px #ff69b4;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes floatingHeart {
+    0% {
+      transform: rotate(45deg) translateY(0) scale(0);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+      transform: rotate(45deg) translateY(-100px) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: rotate(45deg) translateY(-200px) scale(0.5);
+    }
+  }
+
+  @keyframes rotate {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
+  .success {
+    color: #2ecc71;
+    background: rgba(46, 204, 113, 0.1);
+  }
+
+  .error {
+    color: #e74c3c;
+    background: rgba(231, 76, 60, 0.1);
+  }
+  .stage img {
+    width: 150px;      
+    height: auto;       
+    max-height: 150px;  
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    margin: 10px auto; 
+    display: block;
+    object-fit: cover; 
+    display: none;
+}
